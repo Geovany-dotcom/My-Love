@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import "./app.css"
+import "./App.css"
 // IMPORTA TU IMAGEN DESDE LA CARPETA ASSETS
 import miAmorImg from "./assets/mi-amor.jpeg"
 
