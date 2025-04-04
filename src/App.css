@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+.motivational-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 25%, #fad0c4 50%, #c1dfc4 75%, #a6c0fe 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Estrellas brillantes */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg) scale(0);
+    opacity: 0;
+  }
+}
+
+.motivational-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.motivational-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.3;
+  background: linear-gradient(45deg, #ff6b6b, #ff9e7d, #ffd082, #7ed6df, #a29bfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 8s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.heart-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+.heart-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Corazón grande que aparece al final */
+.big-heart {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(255, 0, 102, 0.2) 0%, rgba(255, 0, 102, 0) 70%);
+  z-index: 5;
+  transform-origin: center;
+}
+
+.big-heart:before,
+.big-heart:after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 320px;
+  border-radius: 200px 200px 0 0;
+  background: rgba(255, 0, 102, 0.2);
+  box-shadow: 0 0 40px rgba(255, 0, 102, 0.5);
+}
+
+.big-heart:before {
+  left: 100px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.big-heart:after {
+  left: 100px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.heart-word {
+  position: absolute;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff4d6d;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.heart-word:hover {
+  transform: scale(1.2);
+  color: #ff0a54;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.image-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 77, 109, 0.8);
+  z-index: 20;
+}
+
+.glow-effect {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+/* Destellos alrededor de la imagen */
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+
+.sparkle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform-origin: left center;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: rotate(0) translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0) translateX(30px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0) translateX(60px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+.girlfriend-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 4px solid white;
+  border-radius: 50%;
+  animation: borderGlow 3s infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    border-color: #ff4d6d;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
+  }
+  100% {
+    border-color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.final-message {
+  text-align: center;
+  margin-top: 60px;
+  position: relative;
+}
+
+.final-message h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ff0a54;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  top: -50px;
+  left: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+@media (max-width: 768px) {
+  .motivational-text h1 {
+    font-size: 2rem;
+  }
+
+  .heart-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .big-heart {
+    width: 280px;
+    height: 280px;
+  }
+
+  .big-heart:before,
+  .big-heart:after {
+    width: 140px;
+    height: 224px;
+  }
+
+  .big-heart:before {
+    left: 70px;
+  }
+
+  .big-heart:after {
+    left: 70px;
+  }
+
+  .heart-word {
+    font-size: 0.9rem;
+  }
+
+  .image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .final-message h2 {
+    font-size: 2.5rem;
+  }
+}
+
