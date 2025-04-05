@@ -3,22 +3,23 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import "./App.css"
-// IMPORTA TU IMAGEN DESDE LA CARPETA ASSETS
 import miAmorImg from "./assets/mi-amor.jpeg"
 
-function App() {
+
+export default function Home() {
   const [step, setStep] = useState(0)
   const [showHeart, setShowHeart] = useState(false)
   const [finalMessage, setFinalMessage] = useState(false)
   const [heartComplete, setHeartComplete] = useState(false)
+  const [heartPathLength, setHeartPathLength] = useState(0)
 
   const motivationalPhrases = [
-    "Cada día es una nueva oportunidad para brillar",
-    "Tu sonrisa ilumina el mundo entero",
-    "Eres más fuerte de lo que imaginas",
-    "Haz pasado por muchas cosas, pero nunca te has perdido",
-    "Creo en ti, incluso cuando tú no lo haces",
-    "Por que eres increible, linda y valiente",
+    "La noche ha caído, pero tu luz interior nunca se apaga",
+    "Como la luna, tú también brillas en la oscuridad",
+    "Las estrellas en el cielo me recuerdan lo especial que eres",
+    "La noche es hermosa, pero no tanto como tu sonrisa",
+    "Incluso en la noche más oscura, siempre hay estrellas que guían",
+    "La luna es testigo de lo mucho que creo en ti",
   ]
 
   const heartWords = [
@@ -106,7 +107,7 @@ function App() {
     <div className="motivational-container">
       {/* Estrellas brillantes en el fondo */}
       <div className="stars">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(70)].map((_, i) => (
           <div
             key={i}
             className="star"
@@ -115,8 +116,23 @@ function App() {
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
               animationDuration: `${1 + Math.random() * 3}s`,
-              width: `${2 + Math.random() * 3}px`,
-              height: `${2 + Math.random() * 3}px`,
+              transform: `rotate(${Math.random() * 360}deg) scale(${0.7 + Math.random() * 1.3})`,
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Estrellas fugaces */}
+      <div className="shooting-stars">
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            className="shooting-star"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 50}%`,
+              animationDelay: `${Math.random() * 15}s`,
+              animationDuration: `${4 + Math.random() * 4}s`,
             }}
           ></div>
         ))}
@@ -124,7 +140,7 @@ function App() {
 
       {/* Partículas flotantes (decoración) */}
       <div className="floating-particles">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
             className="particle"
@@ -157,6 +173,41 @@ function App() {
       {/* Sección del corazón (con las palabras y la imagen) */}
       {showHeart && (
         <div className="heart-section">
+          {/* Corazón animado que se dibuja gradualmente */}
+          <motion.div className="heart-drawing-container">
+            <svg width="600" height="600" viewBox="-300 -300 600 600" className="heart-svg">
+              <defs>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#ff3366" />
+                  <stop offset="50%" stopColor="#ff0a54" />
+                  <stop offset="100%" stopColor="#ff3366" />
+                </linearGradient>
+              </defs>
+              <motion.path
+                d="M0 -100 C-25 -150 -75 -160 -120 -120 C-170 -80 -170 0 0 100 C170 0 170 -80 120 -120 C75 -160 25 -150 0 -100 Z"
+                fill="none"
+                stroke="url(#heartGradient)"
+                strokeWidth="6"
+                filter="url(#glow)"
+                initial={{ pathLength: 0, opacity: 0.2 }}
+                animate={{
+                  pathLength: 1,
+                  opacity: 1,
+                  fill: ["rgba(255, 51, 102, 0)", "rgba(255, 51, 102, 0.5)"],
+                }}
+                transition={{
+                  pathLength: { duration: 4, ease: "easeInOut" },
+                  opacity: { duration: 1 },
+                  fill: { delay: 3, duration: 3 },
+                }}
+              />
+            </svg>
+          </motion.div>
+
           {/* Corazón grande que aparece al final */}
           {heartComplete && (
             <motion.div
@@ -198,18 +249,17 @@ function App() {
             >
               <div className="glow-effect"></div>
               <div className="sparkles">
-                {[...Array(8)].map((_, i) => (
+                {[...Array(12)].map((_, i) => (
                   <div
                     key={i}
                     className="sparkle"
                     style={{
-                      transform: `rotate(${i * 45}deg)`,
+                      transform: `rotate(${i * 30}deg)`,
                       animationDelay: `${i * 0.2}s`,
                     }}
                   ></div>
                 ))}
               </div>
-              {/* AQUÍ USAMOS LA IMAGEN IMPORTADA */}
               <img src={miAmorImg || "/placeholder.svg"} alt="Mi amor" className="girlfriend-image" />
             </motion.div>
           </div>
@@ -229,7 +279,7 @@ function App() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
               >
-                {[...Array(20)].map((_, i) => (
+                {[...Array(30)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="floating-heart"
@@ -262,6 +312,3 @@ function App() {
     </div>
   )
 }
-
-export default App
-
