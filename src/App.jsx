@@ -17,9 +17,9 @@ export default function Home() {
     "La noche ha caído, pero tu luz interior nunca se apaga",
     "Como la luna, tú también brillas en la oscuridad",
     "Las estrellas en el cielo me recuerdan lo especial que eres",
-    "La noche es hermosa, pero no tanto como tu sonrisa",
+    "La noche es hermosa, pero no tanto como tus ojitos bonitos",
     "Incluso en la noche más oscura, siempre hay estrellas que guían",
-    "La luna es testigo de lo mucho que creo en ti",
+    "La luna es testigo de lo mucho que creo en ti y te amo",
   ]
 
   const heartWords = [
