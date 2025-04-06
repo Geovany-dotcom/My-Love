@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 // Importa el CSS exclusivo para el NightComponent como objeto
-import styles from "./NightComponent.module.css"
+import styles from "NightComponent.module.css"
 
 // Importa tu imagen desde la carpeta assets
 import miAmorImg from "../assets/mi-amor.jpeg"
